@@ -43,12 +43,17 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#Session存储方式
+#SESSION_ENGINE='django.contrib.sessions.backends.cached_db'
+# 由表结构可知，操作Session包括三个数据：键，值，过期时间。
 
 ROOT_URLCONF = 'djangoDemo.urls'
 
@@ -123,3 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = []
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "frontend/dist/static"),
+# ]
+CORS_ORIGIN_ALLOW_ALL = True

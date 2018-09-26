@@ -36,9 +36,6 @@ def search(request):
 def search_post(request):
     ctx ={}
     if request.POST:
-        if request.POST['q']:
-            ctx['rlt'] = request.POST['q']
-        else:
-            ctx['rlt'] = '输入的数据为空！请重新输入'
+        ctx['rlt'] = request.POST['q']
     return render(request, "post.html", ctx)
 
